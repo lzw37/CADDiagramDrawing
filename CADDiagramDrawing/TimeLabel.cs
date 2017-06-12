@@ -40,14 +40,14 @@ namespace CADDiagramDrawing
             if (ParentOperation.CurrentDirection == Direction.Down)
             {
                 DXFLibrary.Text t = new Text((ParentOperation.ArriveTime.Minute % 10).ToString(),
-                    ParentOperation.ArriveX,
+                    ParentOperation.ArriveX + Parameters.TimeExcurtion,
                     -(ParentOperation.Station.Y - Parameters.TimeExcurtion),
                     TextHeight, "TrainTime");
                 doc.add(t);
-                if (ParentOperation.ArriveTime.Second != 0)//不是整分钟的，画上秒数
+                if (ParentOperation.ArriveTime.Second != 0)
                 {
                     DXFLibrary.Text ts = new Text(ParentOperation.ArriveTime.Second.ToString(),
-                        (ParentOperation.ArriveX + Parameters.TimeTextWidth),
+                        (ParentOperation.ArriveX + TextHeight / 1.5) + Parameters.TimeExcurtion,
                         -(ParentOperation.Station.Y - Parameters.TimeExcurtion),
                         TextHeight / 3, "TrainTime");
                     doc.add(ts);
@@ -56,14 +56,14 @@ namespace CADDiagramDrawing
             else
             {
                 DXFLibrary.Text t = new Text((ParentOperation.ArriveTime.Minute % 10).ToString(),
-                    ParentOperation.ArriveX,
+                    ParentOperation.ArriveX + Parameters.TimeExcurtion,
                     -(ParentOperation.Station.Y + TextHeight + Parameters.TimeExcurtion),
                     TextHeight, "TrainTime");
                 doc.add(t);
                 if (ParentOperation.ArriveTime.Second != 0)
                 {
                     DXFLibrary.Text ts = new Text(ParentOperation.ArriveTime.Second.ToString(),
-                        (ParentOperation.ArriveX + Parameters.TimeTextWidth),
+                        (ParentOperation.ArriveX + Parameters.TimeTextWidth) + Parameters.TimeExcurtion,
                         -(ParentOperation.Station.Y + TextHeight + Parameters.TimeExcurtion),
                         TextHeight / 3, "TrainTime");
                     doc.add(ts);
@@ -79,14 +79,14 @@ namespace CADDiagramDrawing
             if (ParentOperation.CurrentDirection == Direction.Down)
             {
                 DXFLibrary.Text t = new Text((ParentOperation.DepartTime.Minute % 10).ToString(),
-                    ParentOperation.DepartX - Parameters.TimeTextWidth * 1.5,
+                    ParentOperation.DepartX - Parameters.TimeTextWidth * 2 + Parameters.TimeExcurtion,
                     -(ParentOperation.Station.Y + TextHeight + Parameters.TimeExcurtion),
                     TextHeight, "TrainTime");
                 doc.add(t);
                 if (ParentOperation.DepartTime.Second != 0)
                 {
                     DXFLibrary.Text ts = new Text(ParentOperation.DepartTime.Second.ToString(),
-                        (ParentOperation.DepartX - Parameters.TimeTextWidth*0.5),
+                        (ParentOperation.DepartX - Parameters.TimeTextWidth) + Parameters.TimeExcurtion,
                         -(ParentOperation.Station.Y + TextHeight + Parameters.TimeExcurtion),
                         TextHeight / 3, "TrainTime");
                     doc.add(ts);
@@ -95,14 +95,14 @@ namespace CADDiagramDrawing
             else
             {
                 DXFLibrary.Text t = new Text((ParentOperation.DepartTime.Minute % 10).ToString(),
-                    ParentOperation.DepartX - Parameters.TimeTextWidth * 1.5,
+                    ParentOperation.DepartX - Parameters.TimeTextWidth * 2 + Parameters.TimeExcurtion,
                     -(ParentOperation.Station.Y - Parameters.TimeExcurtion),
                     TextHeight, "TrainTime");
                 doc.add(t);
                 if (ParentOperation.DepartTime.Second != 0)
                 {
                     DXFLibrary.Text ts = new Text(ParentOperation.DepartTime.Second.ToString(),
-                        (ParentOperation.DepartX -Parameters.TimeTextWidth*0.5),
+                        (ParentOperation.DepartX -Parameters.TimeTextWidth) + Parameters.TimeExcurtion,
                         -(ParentOperation.Station.Y - Parameters.TimeExcurtion),
                         TextHeight / 3, "TrainTime");
                     doc.add(ts);
