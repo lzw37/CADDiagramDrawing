@@ -1,0 +1,7 @@
+C:\Users\RCS-Liao\Desktop\dfxWriter\dfxWriter\bin\Debug\dfxWriter.exe
+C:\Users\RCS-Liao\Desktop\dfxWriter\dfxWriter\bin\Debug\dfxWriter.pdb
+C:\Users\RCS-Liao\Desktop\dfxWriter\dfxWriter\bin\Debug\dxflibrary.dll
+C:\Users\RCS-Liao\Desktop\dfxWriter\dfxWriter\bin\Debug\dxflibrary.pdb
+C:\Users\RCS-Liao\Desktop\dfxWriter\dfxWriter\obj\Debug\dfxWriter.csprojResolveAssemblyReference.cache
+C:\Users\RCS-Liao\Desktop\dfxWriter\dfxWriter\obj\Debug\dfxWriter.exe
+C:\Users\RCS-Liao\Desktop\dfxWriter\dfxWriter\obj\Debug\dfxWriter.pdb
