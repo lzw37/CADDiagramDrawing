@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* 示例程序，利用CADDiagramDrawing程序创建CAD列车运行图
+ * 本程序开发者Zhengwen Liao（lzw37@163.com）
+ * 为方便铁路科研人员和爱好者，本程序代码开源，允许进行任何形式的修改和运用*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,11 +48,12 @@ namespace TestProgram
         static void CreateStationView()
         {
             /*创建运行图区块*/
-            DiagramBlock block1 = new DiagramBlock("0");
-            diagram.BlockSet.Add(block1);
+            DiagramBlock block1 = new DiagramBlock("0");/*参数为运行图区块的名称*/
+            diagram.BlockSet.Add(block1);/*把运行图区块加入运行图中*/
 
             /*创建车站*/
             DStation station1 = new DStation("1", "车站1", block1, 0);
+            /*参数分别为车站ID，车站名，车站所在区块，车站线距离所在区块顶端的相对位置*/
             DStation station2 = new DStation("2", "车站2", block1, 21.3);
             DStation station3 = new DStation("3", "车站3", block1, 45.6);
 
@@ -73,16 +78,16 @@ namespace TestProgram
         /// </summary>
         static void CreateTrainView()
         {
-            DTrain train = new DTrain();
-            train.Name = "G1001";
-            TrainStationOp tso = new TrainStationOp();
+            DTrain train = new DTrain();/*创建列车对象*/
+            train.Name = "G1001";/*列车车次号*/
+            TrainStationOp tso = new TrainStationOp();/*创建列车在车站的作业时刻对象*/
             tso.Train = train;
-            tso.IsTerminal = true;
+            tso.IsTerminal = true;/*指定该车站是否为始发或终到车站*/
             tso.Station = diagram.GetStationByName("1");
-            tso.ArriveTime = DateTime.Parse("05:00:00");
-            tso.DepartTime = DateTime.Parse("05:05:00");
-            tso.CurrentDirection = Direction.Down;
-            train.TrainStationOpSet.Add(tso);
+            tso.ArriveTime = DateTime.Parse("05:00:00");/*指定列车在车站的到达时刻*/
+            tso.DepartTime = DateTime.Parse("05:05:00");/*指定列车在车站的出发时刻*/
+            tso.CurrentDirection = Direction.Down;/*指定列车在该车站的运行方向*/
+            train.TrainStationOpSet.Add(tso);/*将车站作业时刻对象添加到列车的作业列表中*/
 
             tso = new TrainStationOp();
             tso.Train = train;
@@ -117,7 +122,7 @@ namespace TestProgram
             tso.CurrentDirection = Direction.Down;
             train.TrainStationOpSet.Add(tso);
 
-            diagram.TrainSet.Add(train);
+            diagram.TrainSet.Add(train);/*将列车加入运行图中*/
 
 
 
